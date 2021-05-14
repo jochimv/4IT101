@@ -30,6 +30,7 @@ public class Hra implements IHra {
         herniPlan = new HerniPlan();
         platnePrikazy = new SeznamPrikazu();
         platnePrikazy.vlozPrikaz(new PrikazNapoveda(platnePrikazy));
+        platnePrikazy.vlozPrikaz(new PrikazTeleport(herniPlan));
         platnePrikazy.vlozPrikaz(new PrikazJdi(herniPlan));
         platnePrikazy.vlozPrikaz(new PrikazKonec(this));
 
@@ -122,7 +123,7 @@ public class Hra implements IHra {
     private String overZdaJeKonec() {
         if (herniPlan.getAktualniProstor().getNazev().equals("chaloupka")) {
             this.setKonecHry(true);
-            return Barvy.ANSI_BLUE + "\nKarkulka donesla košík babičce a tím hra končí." + Barvy.ANSI_RESET;
+            return Barvy.ANSI_BLUE + "Karkulka donesla košík babičce a tím hra končí." + Barvy.ANSI_RESET;
         }
         return null;
     }

@@ -17,7 +17,12 @@ import java.util.Arrays;
  */
 public class HerniPlan {
 
+    private static ArrayList<Prostor> prostoryHry = new ArrayList<>();
     private Prostor aktualniProstor;
+
+    public static ArrayList<Prostor> getProstoryHry(){
+        return prostoryHry;
+    }
 
     /**
      * Konstruktor který vytváří jednotlivé prostory a propojuje je pomocí východů.
@@ -36,14 +41,14 @@ public class HerniPlan {
         // vytvářejí se jednotlivé prostory
         Batoh batoh = Batoh.getInstance();
 
-        Prostor domecek = new Prostor("domeček", "Domeček, ve kterém bydlí Karkulka", new ArrayList<>(Arrays.asList(new Vec("klíče", true), new Vec("mobil", true), new Vec("stůl", false))), batoh);
+        Prostor domecek = new Prostor("domeček", "Domeček, ve kterém bydlí Karkulka", new ArrayList<>(Arrays.asList(new Vec("prsten", true), new Vec("klíče", true), new Vec("mobil", true), new Vec("stůl", false))), batoh);
         Prostor hory = new Prostor("hory", "Vysoké hory, ve kterých zimuje lesní zvěř. V létě zde chodí vesničané lovit", new ArrayList<>(Arrays.asList(new Vec("lebka zvířete", true), new Vec("krumpáč", true))), batoh);
         Prostor rekaJ = new Prostor("řeka jih", "Řeka. Ještě že karkulka umí plavat", new ArrayList<>(Arrays.asList(new Vec("zlato", true))), batoh);
-        Prostor kameni = new Prostor("kamenatý prostor", "Tudy to asi nepůjde", new ArrayList<>(Arrays.asList(new Vec("stará zbraň", true), new Vec("kamení", false))), batoh);
+        Prostor kameni = new Prostor("kamenatý prostor", "Kamenaté hory s hlubokou propastí. Tudy to asi nepůjde", new ArrayList<>(Arrays.asList(new Vec("stará zbraň", true), new Vec("kamení", false))), batoh);
         Prostor les1 = new Prostor("les", "les s jahodami, malinami a pramenem vody", new ArrayList<>(Arrays.asList(new Vec("jahody", true), new Vec("maliny", true), new Vec("ptačí vejce", true))), batoh);
         Prostor opustenyDum = new Prostor("opuštěný dům", "Opuštěný dům, ve kterém straší",new ArrayList<>(Arrays.asList(new Vec("", false))), batoh);
         Prostor rekaS = new Prostor("řeka sever", "Řeka. Ještě že karkulka umí plavat", new ArrayList<>(Arrays.asList(new Vec("ryba", true), new Vec("perla", true))), batoh);
-        Prostor vlk = new Prostor("vlk", "Hladový vlk bránící v přístupu k babiččinému domečku", new ArrayList<>( Arrays.asList(new Vec("", false))), batoh);
+        Prostor vlk = new Prostor("vlk", "Hladový vlk bránící v přístupu k babiččinému domečku", new ArrayList<>( Arrays.asList(new Vec("vlčí trus", false))), batoh);
 
         Prostor chaloupka = new Prostor("chaloupka", "chaloupka, ve které bydlí babička Karkulky", new ArrayList<Vec>(Arrays.asList(new Vec("", false))), batoh);
         Prostor vesnice = new Prostor("vesnice", "Vesnice plná obyvatel. Jsou zde obchody, kde by se dalo koupit spoustu užitečných věcí na cestu",new ArrayList<>( Arrays.asList(new Vec("meč", true))), batoh);
@@ -51,6 +56,16 @@ public class HerniPlan {
         Prostor most = new Prostor("most", "Nedávno postavený most přes řeku. Donedávna přes ni ještě museli jezdit převozníci", new ArrayList<>(Arrays.asList(new Vec("vlajka království", false), new Vec("křesadlo", true))), batoh);
         Prostor les2 = new Prostor("les", "Prastarý, hustý les, plný zvířat. Téměř nedotčená příroda", new ArrayList<>(Arrays.asList(new Vec("houby", true), new Vec("šišky", true), new Vec("zajíc", false))), batoh);
 
+        prostoryHry.add(domecek);
+        prostoryHry.add(hory);
+        prostoryHry.add(rekaJ);
+        prostoryHry.add(kameni);
+        prostoryHry.add(les1);
+        prostoryHry.add(rekaS);
+        prostoryHry.add(vesnice);
+        prostoryHry.add(pole);
+        prostoryHry.add(most);
+        prostoryHry.add(les2);
 
         // přiřazují se průchody mezi prostory (sousedící prostory)
         domecek.setVychod(hory);
