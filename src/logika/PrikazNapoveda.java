@@ -35,7 +35,6 @@ class PrikazNapoveda implements IPrikaz {
     public String provedPrikaz(String[] parametry) {
         return Barvy.ANSI_BLUE + "Tvým úkolem je dovést Červenou Karkulku z domečku\n"
         + "až k babičce, která bydlí v chaloupce za lesem.\n"
-        + "\n"
         + "Můžeš zadat tyto příkazy: "
         + platnePrikazy.vratNazvyPrikazu() + Barvy.ANSI_RESET + "\n";
     }

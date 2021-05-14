@@ -113,7 +113,7 @@ public class Hra implements IHra {
                 textKVypsani = textKVypsani + zaverecnyText;
             }
         } else {
-            textKVypsani = Barvy.ANSI_BLUE + "Nevím co tím myslíš? Tento příkaz neznám.\n" + Barvy.ANSI_RESET + herniPlan.getAktualniProstor().dlouhyPopis() ;
+            textKVypsani = Barvy.ANSI_BLUE + "\nNevím co tím myslíš? Tento příkaz neznám.\n" + Barvy.ANSI_RESET + herniPlan.getAktualniProstor().dlouhyPopis() ;
         }
         return textKVypsani;
     }
@@ -121,7 +121,7 @@ public class Hra implements IHra {
     private String overZdaJeKonec() {
         if (herniPlan.getAktualniProstor().getNazev().equals("chaloupka")) {
             this.setKonecHry(true);
-            return Barvy.ANSI_BLUE + "\nKarkulka donesla košík babičce a tím hra končí." + Barvy.ANSI_RESET;
+            return Barvy.ANSI_BLUE + "Karkulka donesla košík babičce a tím hra končí." + Barvy.ANSI_RESET;
         }
         return null;
     }

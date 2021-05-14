@@ -157,8 +157,7 @@ public class Prostor implements Comparable<Prostor> {
     }
 
     public String dlouhyPopis() {
-        return "jsi v mistnosti/prostoru: " + popis + ".\n"
-                + ((nazev.equals("chaloupka")) ? "" : popisVychodu() + "\n" + "věci v prostoru: " + popisVeci() + "\n" + batoh.toString());
+        return ((nazev.equals("chaloupka")) ? "" : "jsi v mistnosti/prostoru: " + popis + ".\n" + popisVychodu() + "\n" + "věci v prostoru: " + popisVeci() + "\n" + batoh.toString());
     }
 
     /**
