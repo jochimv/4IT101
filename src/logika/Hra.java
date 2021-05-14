@@ -2,6 +2,7 @@ package logika;
 
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.Scanner;
 
 /**
  * Třída Hra - třída představující logiku adventury.
@@ -85,7 +86,7 @@ public class Hra implements IHra {
         String textKVypsani;
         if (platnePrikazy.jePlatnyPrikaz(slovoPrikazu)) {
             IPrikaz prikaz = platnePrikazy.vratPrikaz(slovoPrikazu);
-            textKVypsani = "\n"+  prikaz.provedPrikaz(parametry);
+            textKVypsani = "\n" + prikaz.provedPrikaz(parametry);
             if (slovoPrikazu.equals("pomoc") || slovoPrikazu.equals("polož") || slovoPrikazu.equals("seber")) {
                 textKVypsani += "\n" + herniPlan.getAktualniProstor().dlouhyPopis();
             }
@@ -98,13 +99,13 @@ public class Hra implements IHra {
                     sousedni.add(prostor);
                 }
                 herniPlan.setAktualniProstor(sousedni.get(randomLoc));
-                textKVypsani += "\n\n"+ Barvy.ANSI_BLUE + "Změnil jsi prostor\n" + Barvy.ANSI_RESET + herniPlan.getAktualniProstor().dlouhyPopis();
+                textKVypsani += "\n\n" + Barvy.ANSI_BLUE + "Změnil jsi prostor\n" + Barvy.ANSI_RESET + herniPlan.getAktualniProstor().dlouhyPopis();
             }
             if (herniPlan.getAktualniProstor().getNazev().equals("vlk") && batoh.obsahujeVec("meč")) {
                 textKVypsani += Barvy.ANSI_BLUE + "\n\nvlk je poražen a můžeme projít\n" + Barvy.ANSI_RESET + herniPlan.getAktualniProstor().dlouhyPopis();
             } else if (herniPlan.getAktualniProstor().getNazev().equals("vlk") && !batoh.obsahujeVec("meč")) {
                 herniPlan.setAktualniProstor(aktualniProstor);
-                textKVypsani += Barvy.ANSI_RED +"\nvlk nás zahnal zpátky\n" + Barvy.ANSI_BLUE + "\nZměnil jsi prostor\n" + Barvy.ANSI_RESET + aktualniProstor.dlouhyPopis();
+                textKVypsani += Barvy.ANSI_RED + "\nvlk nás zahnal zpátky\n" + Barvy.ANSI_BLUE + "\nZměnil jsi prostor\n" + Barvy.ANSI_RESET + aktualniProstor.dlouhyPopis();
 
             }
             String zaverecnyText = overZdaJeKonec();
@@ -113,7 +114,7 @@ public class Hra implements IHra {
                 textKVypsani = textKVypsani + zaverecnyText;
             }
         } else {
-            textKVypsani = Barvy.ANSI_BLUE + "\nNevím co tím myslíš? Tento příkaz neznám.\n" + Barvy.ANSI_RESET + herniPlan.getAktualniProstor().dlouhyPopis() ;
+            textKVypsani = Barvy.ANSI_BLUE + "\nNevím co tím myslíš? Tento příkaz neznám.\n" + Barvy.ANSI_RESET + herniPlan.getAktualniProstor().dlouhyPopis();
         }
         return textKVypsani;
     }
@@ -121,7 +122,7 @@ public class Hra implements IHra {
     private String overZdaJeKonec() {
         if (herniPlan.getAktualniProstor().getNazev().equals("chaloupka")) {
             this.setKonecHry(true);
-            return Barvy.ANSI_BLUE + "Karkulka donesla košík babičce a tím hra končí." + Barvy.ANSI_RESET;
+            return Barvy.ANSI_BLUE + "\nKarkulka donesla košík babičce a tím hra končí." + Barvy.ANSI_RESET;
         }
         return null;
     }
