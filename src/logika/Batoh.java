@@ -4,9 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Batoh {
+    private static final Batoh batoh = new Batoh();
     public static final int KAPACITA = 4;
     private int aktualniPocetVeci = 0;
     private List<Vec> veci;
+
+    public static Batoh getInstance(){
+        return batoh;
+    }
 
 
     public Batoh(){

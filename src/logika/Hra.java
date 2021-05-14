@@ -1,6 +1,5 @@
 package logika;
 
-import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -26,7 +25,7 @@ public class Hra implements IHra {
      * Vytváří hru a inicializuje místnosti (prostřednictvím třídy HerniPlan) a seznam platných příkazů.
      */
     public Hra() {
-        batoh = new Batoh();
+        batoh = Batoh.getInstance();
         herniPlan = new HerniPlan();
         platnePrikazy = new SeznamPrikazu();
         platnePrikazy.vlozPrikaz(new PrikazNapoveda(platnePrikazy));
@@ -86,12 +85,10 @@ public class Hra implements IHra {
         String textKVypsani;
         if (platnePrikazy.jePlatnyPrikaz(slovoPrikazu)) {
             IPrikaz prikaz = platnePrikazy.vratPrikaz(slovoPrikazu);
-            textKVypsani = prikaz.provedPrikaz(parametry);
+            textKVypsani = "\n"+  prikaz.provedPrikaz(parametry);
             if (slovoPrikazu.equals("pomoc") || slovoPrikazu.equals("polož") || slovoPrikazu.equals("seber")) {
                 textKVypsani += "\n" + herniPlan.getAktualniProstor().dlouhyPopis();
             }
-            textKVypsani += batoh.toString();
-
             if (herniPlan.getAktualniProstor().getNazev().equals("opuštěný dům")) {
                 textKVypsani += Barvy.ANSI_RED + "\nkarkulka se lekla a utekla" + Barvy.ANSI_RESET;
                 Random r = new Random();
@@ -101,13 +98,13 @@ public class Hra implements IHra {
                     sousedni.add(prostor);
                 }
                 herniPlan.setAktualniProstor(sousedni.get(randomLoc));
-                textKVypsani += "\n\n"+ Barvy.ANSI_BLUE + "Změnil jsi prostor\n" + Barvy.ANSI_RESET + herniPlan.getAktualniProstor().dlouhyPopis() + batoh.toString();
+                textKVypsani += "\n\n"+ Barvy.ANSI_BLUE + "Změnil jsi prostor\n" + Barvy.ANSI_RESET + herniPlan.getAktualniProstor().dlouhyPopis();
             }
             if (herniPlan.getAktualniProstor().getNazev().equals("vlk") && batoh.obsahujeVec("meč")) {
-                textKVypsani += Barvy.ANSI_BLUE + "\nvlk je poražen a můžeme projít\n" + Barvy.ANSI_RESET + herniPlan.getAktualniProstor().dlouhyPopis() + batoh.toString();
+                textKVypsani += Barvy.ANSI_BLUE + "\n\nvlk je poražen a můžeme projít\n" + Barvy.ANSI_RESET + herniPlan.getAktualniProstor().dlouhyPopis();
             } else if (herniPlan.getAktualniProstor().getNazev().equals("vlk") && !batoh.obsahujeVec("meč")) {
                 herniPlan.setAktualniProstor(aktualniProstor);
-                textKVypsani += Barvy.ANSI_RED +"\nvlk nás zahnal zpátky\n" + Barvy.ANSI_BLUE + "\nZměnil jsi prostor\n" + Barvy.ANSI_RESET + aktualniProstor.dlouhyPopis()  + batoh.toString();
+                textKVypsani += Barvy.ANSI_RED +"\nvlk nás zahnal zpátky\n" + Barvy.ANSI_BLUE + "\nZměnil jsi prostor\n" + Barvy.ANSI_RESET + aktualniProstor.dlouhyPopis();
 
             }
             String zaverecnyText = overZdaJeKonec();
@@ -116,7 +113,7 @@ public class Hra implements IHra {
                 textKVypsani = textKVypsani + zaverecnyText;
             }
         } else {
-            textKVypsani = Barvy.ANSI_BLUE + "Nevím co tím myslíš? Tento příkaz neznám.\n" + Barvy.ANSI_RESET + herniPlan.getAktualniProstor().dlouhyPopis() + batoh.toString() ;
+            textKVypsani = Barvy.ANSI_BLUE + "Nevím co tím myslíš? Tento příkaz neznám.\n" + Barvy.ANSI_RESET + herniPlan.getAktualniProstor().dlouhyPopis() ;
         }
         return textKVypsani;
     }

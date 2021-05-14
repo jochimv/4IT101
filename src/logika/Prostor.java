@@ -6,9 +6,9 @@ import java.util.stream.Collectors;
 
 /**
  * Trida Prostor - popisuje jednotlivé prostory (místnosti) hry
- *
+ * <p>
  * Tato třída je součástí jednoduché textové hry.
- *
+ * <p>
  * "Prostor" reprezentuje jedno místo (místnost, prostor, ..) ve scénáři hry.
  * Prostor může mít sousední prostory připojené přes východy. Pro každý východ
  * si prostor ukládá odkaz na sousedící prostor.
@@ -16,13 +16,13 @@ import java.util.stream.Collectors;
  * @author Michael Kolling, Lubos Pavlicek, Jarmila Pavlickova
  * @version pro školní rok 2016/2017
  */
-public class Prostor implements Comparable<Prostor>{
+public class Prostor implements Comparable<Prostor> {
 
     private String nazev;
     private String popis;
     private Set<Prostor> vychody;   // obsahuje sousední místnosti
     private ArrayList<Vec> veciProstoru;
-   // private Batoh batoh;
+    private Batoh batoh;
 
 
     /**
@@ -30,35 +30,36 @@ public class Prostor implements Comparable<Prostor>{
      * před domem"
      *
      * @param nazev nazev prostoru, jednoznačný identifikátor, jedno slovo nebo
-     * víceslovný název bez mezer.
+     *              víceslovný název bez mezer.
      * @param popis Popis prostoru.
      */
-    public Prostor(String nazev, String popis, ArrayList<Vec> veciProstoru) {
+    public Prostor(String nazev, String popis, ArrayList<Vec> veciProstoru, Batoh batoh) {
         this.nazev = nazev;
         this.popis = popis;
         vychody = new TreeSet<>();
         this.veciProstoru = veciProstoru;
-       // this.batoh = batoh;
+        this.batoh = batoh;
 
     }
-    public void vlozVec(Vec co){
+
+    public void vlozVec(Vec co) {
         veciProstoru.add(co);
     }
 
-    public Vec odeberVec(String nazev){
+    public Vec odeberVec(String nazev) {
 
-        for (Vec vec: veciProstoru){
-            if (vec.getNazev().equals(nazev)){
-             veciProstoru.remove(vec);
-              return vec;
+        for (Vec vec : veciProstoru) {
+            if (vec.getNazev().equals(nazev)) {
+                veciProstoru.remove(vec);
+                return vec;
             }
         }
         return null;
     }
 
-    public boolean jeVecVProstoru(String nazevVeci){
-        for (Vec vec : veciProstoru){
-            if (vec.getNazev().equals(nazevVeci)){
+    public boolean jeVecVProstoru(String nazevVeci) {
+        for (Vec vec : veciProstoru) {
+            if (vec.getNazev().equals(nazevVeci)) {
                 return true;
             }
         }
@@ -66,9 +67,10 @@ public class Prostor implements Comparable<Prostor>{
     }
 
     @Override
-    public int compareTo(Prostor jiny){
+    public int compareTo(Prostor jiny) {
         return this.nazev.compareTo(jiny.getNazev());
     }
+
     /**
      * Definuje východ z prostoru (sousední/vedlejsi prostor). Vzhledem k tomu,
      * že je použit Set pro uložení východů, může být sousední prostor uveden
@@ -77,7 +79,6 @@ public class Prostor implements Comparable<Prostor>{
      * žádné chybové hlášení). Lze zadat též cestu ze do sebe sama.
      *
      * @param vedlejsi prostor, který sousedi s aktualnim prostorem.
-     *
      */
     public void setVychod(Prostor vedlejsi) {
         vychody.add(vedlejsi);
@@ -87,20 +88,20 @@ public class Prostor implements Comparable<Prostor>{
      * Metoda equals pro porovnání dvou prostorů. Překrývá se metoda equals ze
      * třídy Object. Dva prostory jsou shodné, pokud mají stejný název. Tato
      * metoda je důležitá z hlediska správného fungování seznamu východů (Set).
-     *
+     * <p>
      * Bližší popis metody equals je u třídy Object.
      *
      * @param o object, který se má porovnávat s aktuálním
      * @return hodnotu true, pokud má zadaný prostor stejný název, jinak false
-     */  
-      @Override
+     */
+    @Override
     public boolean equals(Object o) {
         // porovnáváme zda se nejedná o dva odkazy na stejnou instanci
         if (this == o) {
             return true;
         }
 
-        if (o instanceof Prostor){
+        if (o instanceof Prostor) {
             return this.nazev.equals(((Prostor) o).getNazev());
         }
 
@@ -120,7 +121,7 @@ public class Prostor implements Comparable<Prostor>{
     public int hashCode() {
         return 31 + this.nazev.hashCode();
     }
-      
+
 
     /**
      * Vrací název prostoru (byl zadán při vytváření prostoru jako parametr
@@ -129,7 +130,7 @@ public class Prostor implements Comparable<Prostor>{
      * @return název prostoru
      */
     public String getNazev() {
-        return nazev;       
+        return nazev;
     }
 
     /**
@@ -140,15 +141,15 @@ public class Prostor implements Comparable<Prostor>{
      * @return Dlouhý popis prostoru
      */
 
-    public String popisVeci(){
+    public String popisVeci() {
         StringBuilder stringBuilder = new StringBuilder();
-        if (veciProstoru.size() == 0){
+        if (veciProstoru.size() == 0) {
             return "";
         }
-        for (Vec vec: veciProstoru){
+        for (Vec vec : veciProstoru) {
             stringBuilder.append(vec.getNazev() + ", ");
         }
-        return stringBuilder.substring(0, stringBuilder.length() -2);
+        return stringBuilder.substring(0, stringBuilder.length() - 2);
     }
 
     public ArrayList<Vec> getVeciProstoru() {
@@ -157,7 +158,7 @@ public class Prostor implements Comparable<Prostor>{
 
     public String dlouhyPopis() {
         return "jsi v mistnosti/prostoru: " + popis + ".\n"
-        + ((nazev.equals("chaloupka"))? "" : popisVychodu() + "\n" + "věci v prostoru: " + popisVeci() + "\n" );
+                + ((nazev.equals("chaloupka")) ? "" : popisVychodu() + "\n" + "věci v prostoru: " + popisVeci() + "\n" + batoh.toString());
     }
 
     /**
@@ -169,7 +170,7 @@ public class Prostor implements Comparable<Prostor>{
     private String popisVychodu() {
         String vracenyText = "východy: ";
         for (Prostor sousedni : vychody) {
-            vracenyText +=  sousedni.getNazev() + ", ";
+            vracenyText += sousedni.getNazev() + ", ";
         }
         return vracenyText.substring(0, vracenyText.length() - 2);
     }
@@ -184,14 +185,13 @@ public class Prostor implements Comparable<Prostor>{
      * null, pokud prostor zadaného jména není sousedem.
      */
     public Prostor vratSousedniProstor(String nazevSouseda) {
-        List<Prostor>hledaneProstory = 
-            vychody.stream()
-                   .filter(sousedni -> sousedni.getNazev().equals(nazevSouseda))
-                   .collect(Collectors.toList());
-        if(hledaneProstory.isEmpty()){
+        List<Prostor> hledaneProstory =
+                vychody.stream()
+                        .filter(sousedni -> sousedni.getNazev().equals(nazevSouseda))
+                        .collect(Collectors.toList());
+        if (hledaneProstory.isEmpty()) {
             return null;
-        }
-        else {
+        } else {
             return hledaneProstory.get(0);
         }
     }

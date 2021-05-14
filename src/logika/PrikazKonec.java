@@ -38,7 +38,7 @@ class PrikazKonec implements IPrikaz {
         }
         else {
             hra.setKonecHry(true);
-            return Barvy.ANSI_BLUE + "hra ukončena příkazem konec" + Barvy.ANSI_RESET;
+            return Barvy.ANSI_BLUE + "Hra ukončena příkazem konec" + Barvy.ANSI_RESET;
         }
     }
 
