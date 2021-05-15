@@ -26,27 +26,27 @@ public class PrikazSeber implements IPrikaz {
         for (Vec vec : veci) {
             if (vec.getNazev().equals(parametry[0]) || vec.getNazev().equals(parametry[0] + (parametry.length > 1 ? " " + parametry[1] : ""))) { //jestli se název věci v prostoru rovná tomu, co chceme
                 if (vec.isPrenositelna()) {
-                    if ((batoh.getAktualniPocetVeci() < Batoh.KAPACITA) || (batoh.getAktualniPocetVeci() == Batoh.KAPACITA && ((batoh.obsahujeVec("zlato") && parametry[0].equals("meč") && herniPlan.getAktualniProstor().jeVecVProstoru("meč")) || (batoh.obsahujeVec("meč") && parametry[0].equals("zlato") && herniPlan.getAktualniProstor().jeVecVProstoru("zlato"))))) {
-                        if (batoh.obsahujeVec("zlato") && parametry[0].equals("meč") && herniPlan.getAktualniProstor().jeVecVProstoru("meč")) { //když se snažíme směnit zlato za meč, a všechny podmínky jsou splněny (máme zlato v batohu, a meč je v prostoru)
-                            veci.add(batoh.vratVec("zlato"));  //do věcí v prostoru vlož zlato (které víme, že máme)
+                    if ((batoh.getAktualniPocetVeci() < Batoh.KAPACITA) || (batoh.getAktualniPocetVeci() == Batoh.KAPACITA && ((batoh.obsahujeVec(ZJ.ZLATO) && parametry[0].equals(ZJ.MEC) && herniPlan.getAktualniProstor().jeVecVProstoru(ZJ.MEC)) || (batoh.obsahujeVec(ZJ.MEC) && parametry[0].equals(ZJ.ZLATO) && herniPlan.getAktualniProstor().jeVecVProstoru( ZJ.ZLATO))))) { //tady je chyba
+                        if (batoh.obsahujeVec(ZJ.ZLATO) && parametry[0].equals(ZJ.MEC) && herniPlan.getAktualniProstor().jeVecVProstoru(ZJ.MEC)) { //když se snažíme směnit zlato za meč, a všechny podmínky jsou splněny (máme zlato v batohu, a meč je v prostoru)
+                            veci.add(batoh.vratVec(ZJ.ZLATO));
                             batoh.pridejDoBatohu(vec); //a přidej ho do batohu
-                            batoh.odeberZBatohu("zlato");     //z batohu odebereme zlato
+                            batoh.odeberZBatohu(ZJ.ZLATO);     //z batohu odebereme zlato
                             veci.remove(vec); //z věcí z prostoru odeber meč
                             return Barvy.ANSI_BLUE + "Zlato směněno za meč!" + Barvy.ANSI_RESET;
-                        } else if (!batoh.obsahujeVec("zlato") && parametry[0].equals("meč") && herniPlan.getAktualniProstor().jeVecVProstoru("meč")){ //jestli se snažíme směnit zlato za meč, ale nemáme zlato
+                        } else if (!batoh.obsahujeVec(ZJ.ZLATO) && parametry[0].equals(ZJ.MEC) && herniPlan.getAktualniProstor().jeVecVProstoru(ZJ.MEC)){ //jestli se snažíme směnit zlato za meč, ale nemáme zlato
                          return Barvy.ANSI_BLUE + "K získání meče potřebuješ zlato" + Barvy.ANSI_RESET;
                         }
 
-                        else if (batoh.obsahujeVec("meč") && parametry[0].equals("zlato") && herniPlan.getAktualniProstor().jeVecVProstoru("zlato")) { //když se naopak snažíme změnit meč za zlato, a všechny podmínky jsou splněny
-                            batoh.pridejDoBatohu(vec);
-                            veci.add(batoh.vratVec("meč"));
-                            batoh.odeberZBatohu("meč");
-                            veci.remove(vec);
+                        else if (batoh.obsahujeVec(ZJ.MEC) && parametry[0].equals(ZJ.ZLATO) && herniPlan.getAktualniProstor().jeVecVProstoru(ZJ.ZLATO)) { //když se naopak snažíme změnit meč za zlato, a všechny podmínky jsou splněny
+                            veci.add(batoh.vratVec(ZJ.MEC)); //přidej do prostoru meč
+                            batoh.odeberZBatohu(ZJ.MEC);
+                            veci.remove(vec); //odeber z prostoru zlato
+                            batoh.pridejDoBatohu(vec); //přidej do batohu zlato
                             return Barvy.ANSI_BLUE + "Meč směněn za zlato!" + Barvy.ANSI_RESET;
                         } else {
                             batoh.pridejDoBatohu(vec);
                             veci.remove(vec);
-                            return Barvy.ANSI_BLUE +"věc " + vec.getNazev() + " sebrána!" + Barvy.ANSI_RESET;
+                            return Barvy.ANSI_BLUE +"věc " +  vec.getNazev() + Barvy.ANSI_BLUE + " sebrána!" + Barvy.ANSI_RESET;
                         }
                     } else {
                         return Barvy.ANSI_BLUE + "Batoh je plný, je třeba něco vyhodit." + Barvy.ANSI_RESET;

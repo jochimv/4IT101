@@ -1,20 +1,25 @@
 package logika;
 
-import java.lang.reflect.Array;
 import java.util.*;
-import java.util.logging.Handler;
 
-public class Chodec {
-    //private static final Chodec chodec = new Chodec();
+public class Stážný {
+
     private ArrayList<Prostor> prostory;
     private Random random;
-    private Prostor aktualniProstor;
+    private Prostor vesniceProstor;
     private ArrayList<Hadanka> hadanky;
-    public Chodec(){
+    private Prostor prostorMost;
+
+    public Stážný(){
         random = new Random();
         prostory  = HerniPlan.getProstoryHry();
-        aktualniProstor = prostory.get(random.nextInt(prostory.size()));
-        System.out.println("Chodcův aktuální prostor: " + aktualniProstor.getNazev());
+        for (Prostor prostor: prostory){
+            if (prostor.getNazev().equals("vesnice")){
+                vesniceProstor = prostor;
+            } else if (prostor.getNazev().equals("most")){
+                prostorMost = prostor;
+            }
+        }
         hadanky = new ArrayList<>();
         hadanky.add(new Hadanka("a","Jakou velikost má byte?\n\ta) 8 bit\n\tb) 16 bit\n\tc) 32 bit\n\td) 64 bit"));
         hadanky.add(new Hadanka("b","Jaká je základní hodnota pro short datový typ?\n\ta) 0.0\n\tb) 0\n\tc) null\n\td) nedefinován"));
@@ -31,26 +36,22 @@ public class Chodec {
 
     }
 
-    public void kolo(){
-        aktualniProstor = prostory.get(random.nextInt(prostory.size()));
-        System.out.println("chodcův aktuální prostor: " + aktualniProstor.getNazev());
+    public Prostor getVesniceProstor() {
+        return vesniceProstor;
     }
-    /*public static Chodec getInstance(){
-        return chodec;
-    }*/
 
-    public Prostor getAktualniProstor() {
-        return aktualniProstor;
+    public Prostor getProstorMost() {
+        return prostorMost;
     }
 
     public Hadanka tiskniNahodnouHadanku(){
         Scanner scanner = new Scanner(System.in);
         Hadanka nahodna = hadanky.get(random.nextInt(hadanky.size()));
-        System.out.println(Barvy.ANSI_BLUE + "Na cestě jsi potkal chodce. Aby jsi mohl projít dál, musíš mu odpovědět na jeho otázku. Chodec se tě ptá:\n" +  nahodna.getZneni() + Barvy.ANSI_RESET);
+        System.out.println(Barvy.ANSI_BLUE + "Při odchodu jsi strážného. Aby jsi mohl projít dál, musíš mu odpovědět na jeho otázku. Strážný se tě ptá:\n" +  nahodna.getZneni() + Barvy.ANSI_RESET);
         if (scanner.hasNextLine()){
             String odpoved = scanner.nextLine().toLowerCase();
             if ((odpoved.equals("a") || odpoved.equals("b") || odpoved.equals("c") || odpoved.equals("d")) && odpoved.equals(nahodna.getOdpoved())){
-                System.out.println(Barvy.ANSI_BLUE + "Správně!" + Barvy.ANSI_RESET);
+                System.out.println(Barvy.ANSI_BLUE + "Správně! Strážný tě pouští z dál" + Barvy.ANSI_RESET);
                 return null;
             } else {
                 System.out.println(Barvy.ANSI_BLUE + "Špatná odpověď\n" + Barvy.ANSI_RESET);

@@ -146,10 +146,12 @@ public class Prostor implements Comparable<Prostor> {
         if (veciProstoru.size() == 0) {
             return "";
         }
-        for (Vec vec : veciProstoru) {
-            stringBuilder.append(vec.getNazev() + ", ");
+        if(veciProstoru.size() > 0) {
+            for (Vec vec : veciProstoru) {
+                stringBuilder.append(vec.getNazev() + ", ");
+            }
         }
-        return stringBuilder.substring(0, stringBuilder.length() - 2);
+        return veciProstoru.size() > 0? stringBuilder.substring(0, stringBuilder.length() - 2) : "" ;
     }
 
     public ArrayList<Vec> getVeciProstoru() {
