@@ -1,5 +1,6 @@
 package logika;
 
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
@@ -21,6 +22,7 @@ public class Hra implements IHra {
     private HerniPlan herniPlan;
     private Batoh batoh;
     private boolean konecHry = false;
+    private Chodec chodec;
 
     /**
      * Vytváří hru a inicializuje místnosti (prostřednictvím třídy HerniPlan) a seznam platných příkazů.
@@ -37,6 +39,7 @@ public class Hra implements IHra {
         platnePrikazy.vlozPrikaz(new PrikazSeber(herniPlan, batoh));
         platnePrikazy.vlozPrikaz(new PrikazPoloz(herniPlan, batoh));
         platnePrikazy.vlozPrikaz(new PrikazKapacita(batoh, herniPlan));
+        chodec = new Chodec();
     }
 
     /**
@@ -82,8 +85,12 @@ public class Hra implements IHra {
         for (int i = 0; i < parametry.length; i++) {
             parametry[i] = slova[i + 1];
         }
-
         Prostor aktualniProstor = herniPlan.getAktualniProstor();
+        if (chodec.getAktualniProstor() == aktualniProstor){
+            chodec.tiskniNahodnouHadanku();
+            chodec.kolo();
+        }
+
         String textKVypsani;
         if (platnePrikazy.jePlatnyPrikaz(slovoPrikazu)) {
             IPrikaz prikaz = platnePrikazy.vratPrikaz(slovoPrikazu);
