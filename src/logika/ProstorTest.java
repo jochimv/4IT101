@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class ProstorTest {
 
     @Test
-    public  void testLzeProjit() {
+    public void testLzeProjit() {
         Prostor prostor1 = new Prostor("hala", "vstupní hala budovy VŠE na Jižním městě", null, null);
         Prostor prostor2 = new Prostor("bufet", "bufet, kam si můžete zajít na svačinku", null, null);
         prostor1.setVychod(prostor2);

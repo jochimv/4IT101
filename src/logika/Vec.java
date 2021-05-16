@@ -15,7 +15,7 @@ public class Vec {
     }
 
 
-    public String getNazev(){
+    public String getNazev() {
         return nazev;
     }
 

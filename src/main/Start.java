@@ -3,7 +3,6 @@
 package main;
 
 
-
 import logika.*;
 import uiText.TextoveRozhrani;
 
@@ -11,21 +10,19 @@ import uiText.TextoveRozhrani;
  * Třída  Start je hlavní třídou projektu,
  * který představuje jednoduchou textovou adventuru určenou k dalším úpravám a rozšiřování
  *
- * @author    Jarmila Pavlíčková
- * @version   ZS 2016/2017
+ * @author Jarmila Pavlíčková
+ * @version ZS 2016/2017
  */
-public class Start
-{
+public class Start {
     /***************************************************************************
      * Metoda, prostřednictvím níž se spouští celá aplikace.
      *
      * @param args Parametry příkazového řádku
      */
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) {
         Hra hra = new Hra();
-       TextoveRozhrani textoveRozhrani = new TextoveRozhrani(hra);
-       textoveRozhrani.hraj();
+        TextoveRozhrani textoveRozhrani = new TextoveRozhrani(hra);
+        textoveRozhrani.hraj();
 
     }
 }

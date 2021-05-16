@@ -44,14 +44,14 @@ class PrikazJdi implements IPrikaz {
             try {
                 smer = parametry[0] + " " + parametry[1];
                 sousedniProstor = plan.getAktualniProstor().vratSousedniProstor(smer);
-            } catch(ArrayIndexOutOfBoundsException e){
+            } catch (ArrayIndexOutOfBoundsException e) {
 
             }
         }
 
         if (sousedniProstor == null) {
 
-            return Barvy.ANSI_BLUE + "Tam se odsud jít nedá!" + Barvy.ANSI_RESET + "\n"+ plan.getAktualniProstor().dlouhyPopis() ;
+            return Barvy.ANSI_BLUE + "Tam se odsud jít nedá!" + Barvy.ANSI_RESET + "\n" + plan.getAktualniProstor().dlouhyPopis();
         } else {
             plan.setAktualniProstor(sousedniProstor);
             return Barvy.ANSI_BLUE + "Změnil jsi prostor\n" + Barvy.ANSI_RESET + sousedniProstor.dlouhyPopis();

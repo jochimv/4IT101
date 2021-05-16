@@ -1,6 +1,5 @@
 package logika;
 
-import java.lang.reflect.Array;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -146,12 +145,12 @@ public class Prostor implements Comparable<Prostor> {
         if (veciProstoru.size() == 0) {
             return "";
         }
-        if(veciProstoru.size() > 0) {
+        if (veciProstoru.size() > 0) {
             for (Vec vec : veciProstoru) {
                 stringBuilder.append(vec.getNazev() + ", ");
             }
         }
-        return veciProstoru.size() > 0? stringBuilder.substring(0, stringBuilder.length() - 2) : "" ;
+        return veciProstoru.size() > 0 ? stringBuilder.substring(0, stringBuilder.length() - 2) : "";
     }
 
     public ArrayList<Vec> getVeciProstoru() {

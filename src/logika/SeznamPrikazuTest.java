@@ -13,7 +13,7 @@ class SeznamPrikazuTest {
 
 
     @BeforeEach
-    public void setUp(){
+    public void setUp() {
         hra = new Hra();
         prKonec = new PrikazKonec(hra);
         prJdi = new PrikazJdi(hra.getHerniPlan());
@@ -30,6 +30,7 @@ class SeznamPrikazuTest {
         assertEquals(prJdi, seznPrikazu.vratPrikaz("jdi"));
         assertEquals(null, seznPrikazu.vratPrikaz("nápověda"));
     }
+
     @Test
     public void testJePlatnyPrikaz() {
         SeznamPrikazu seznPrikazu = new SeznamPrikazu();
@@ -52,9 +53,6 @@ class SeznamPrikazuTest {
         assertEquals(false, nazvy.contains("nápověda"));
         assertEquals(false, nazvy.contains("Konec"));
     }
-
-
-
 
 
 }

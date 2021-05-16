@@ -20,12 +20,6 @@ public PrikazTeleport(HerniPlan herniPlan){
             Prostor prostorTeleportace = HerniPlan.getProstoryHry().get(indexTeleportace);
             herniPlan.setAktualniProstor(prostorTeleportace);
 
-            /*int indexPrstenu = random.nextInt(velikost);
-            Prostor prostorPrstenu = HerniPlan.getProstoryHry().get(indexPrstenu);
-            Vec prsten = Batoh.getInstance().vratVec("prsten");
-            Batoh.getInstance().odeberZBatohu("prsten");
-            prostorPrstenu.vlozVec(prsten);*/
-
             return Barvy.ANSI_BLUE + "Teleportace proběhla úspěšně\n" + Barvy.ANSI_RESET+ herniPlan.getAktualniProstor().dlouhyPopis();
 
         } else {

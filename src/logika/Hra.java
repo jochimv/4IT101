@@ -21,6 +21,7 @@ public class Hra implements IHra {
     private Batoh batoh;
     private boolean konecHry = false;
     private Stážný strazny;
+    private boolean vlkPorazeny = false;
 
     /**
      * Vytváří hru a inicializuje místnosti (prostřednictvím třídy HerniPlan) a seznam platných příkazů.
@@ -83,11 +84,11 @@ public class Hra implements IHra {
         for (int i = 0; i < parametry.length; i++) {
             parametry[i] = slova[i + 1];
         }
-        if (parametry.length > 0 && (parametry[0].equals("meč") || parametry[0].equals("prsten") || parametry[0].equals("zlato"))){
+        if (parametry.length > 0 && (parametry[0].equals("meč") || parametry[0].equals("prsten") || parametry[0].equals("zlato"))) {
             parametry[0] = Barvy.ANSI_YELLOW + parametry[0] + Barvy.ANSI_RESET;
         }
         Prostor aktualniProstor = herniPlan.getAktualniProstor();
-        if ((strazny.getVesniceProstor() == aktualniProstor || strazny.getProstorMost() == aktualniProstor) && slovoPrikazu.equals("jdi") && aktualniProstor.vratSousedniProstor(slova[1]) != null){
+        if ((strazny.getVesniceProstor() == aktualniProstor || strazny.getProstorMost() == aktualniProstor) && slovoPrikazu.equals("jdi") && aktualniProstor.vratSousedniProstor(slova[1]) != null) {
             strazny.tiskniNahodnouHadanku();
         }
 
@@ -109,12 +110,12 @@ public class Hra implements IHra {
                 herniPlan.setAktualniProstor(sousedni.get(randomLoc));
                 textKVypsani += "\n\n" + Barvy.ANSI_BLUE + "Změnil jsi prostor\n" + Barvy.ANSI_RESET + herniPlan.getAktualniProstor().dlouhyPopis();
             }
-            if (herniPlan.getAktualniProstor().getNazev().equals("vlk") && batoh.obsahujeVec(ZJ.MEC)) {
-                textKVypsani += Barvy.ANSI_BLUE + "\n\nvlk je poražen a můžeme projít\n" + Barvy.ANSI_RESET + herniPlan.getAktualniProstor().dlouhyPopis();
-            } else if (herniPlan.getAktualniProstor().getNazev().equals("vlk") && !batoh.obsahujeVec(ZJ.MEC)) {
+            if (herniPlan.getAktualniProstor().getNazev().equals("vlk") && batoh.obsahujeVec(ZJ.MEC) && !vlkPorazeny) {
+                textKVypsani += Barvy.ANSI_BLUE + "\n\nVlk je poražen a můžeme projít\n" + Barvy.ANSI_RESET + herniPlan.getAktualniProstor().dlouhyPopis();
+                vlkPorazeny = true;
+            } else if (herniPlan.getAktualniProstor().getNazev().equals("vlk") && !batoh.obsahujeVec(ZJ.MEC) && !vlkPorazeny) {
                 herniPlan.setAktualniProstor(aktualniProstor);
-                textKVypsani += Barvy.ANSI_RED + "\nvlk nás zahnal zpátky\n" + Barvy.ANSI_BLUE + "\nZměnil jsi prostor\n" + Barvy.ANSI_RESET + aktualniProstor.dlouhyPopis();
-
+                textKVypsani += Barvy.ANSI_RED + "\nVlk nás zahnal zpátky\n" + Barvy.ANSI_BLUE + "\nZměnil jsi prostor\n" + Barvy.ANSI_RESET + aktualniProstor.dlouhyPopis();
             }
             String zaverecnyText = overZdaJeKonec();
 
