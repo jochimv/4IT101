@@ -36,6 +36,7 @@ public class Hra implements IHra, Serializable {
         platnePrikazy.vlozPrikaz(new PrikazJdi(herniPlan));
         platnePrikazy.vlozPrikaz(new PrikazKonec(this));
 
+        platnePrikazy.vlozPrikaz(new PrikazSmaz(herniPlan));
         platnePrikazy.vlozPrikaz(new PrikazUloz(this, herniPlan));
 
         platnePrikazy.vlozPrikaz(new PrikazSeber(herniPlan, batoh));

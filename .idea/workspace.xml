@@ -2,55 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8ac7d18d-33c6-4669-80fa-2d00c879556f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Adventura.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Adventura.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Adventura/logika/Barvy.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Adventura/logika/Barvy.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Adventura/logika/Batoh.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Adventura/logika/Batoh.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Adventura/logika/Hadanka.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Adventura/logika/Hadanka.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Adventura/logika/HerniPlan.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Adventura/logika/HerniPlan.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/logika/PrikazSmaz.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/file.ser" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Adventura/logika/Hra.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Adventura/logika/Hra.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Adventura/logika/IHra.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Adventura/logika/IHra.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Adventura/logika/IPrikaz.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Adventura/logika/IPrikaz.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Adventura/logika/PrikazJdi.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Adventura/logika/PrikazJdi.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Adventura/logika/PrikazKapacita.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Adventura/logika/PrikazKapacita.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Adventura/logika/PrikazKonec.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Adventura/logika/PrikazKonec.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Adventura/logika/PrikazNapoveda.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Adventura/logika/PrikazNapoveda.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Adventura/logika/PrikazPoloz.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Adventura/logika/PrikazPoloz.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Adventura/logika/PrikazSeber.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Adventura/logika/PrikazSeber.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Adventura/logika/PrikazTeleport.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Adventura/logika/PrikazTeleport.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Adventura/logika/Prostor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Adventura/logika/Prostor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Adventura/logika/ProstorTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Adventura/logika/ProstorTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Adventura/logika/README.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Adventura/logika/SeznamPrikazu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Adventura/logika/SeznamPrikazu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Adventura/logika/SeznamPrikazuTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Adventura/logika/SeznamPrikazuTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Adventura/logika/Stážný.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Adventura/logika/Vec.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Adventura/logika/Vec.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Adventura/logika/ZJ.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Adventura/logika/ZJ.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Adventura/main/Start.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Adventura/main/Start.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Adventura/uiText/TextoveRozhrani.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Adventura/uiText/TextoveRozhrani.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/logika/Barvy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logika/Barvy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/logika/Batoh.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logika/Batoh.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/logika/Hadanka.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logika/Hadanka.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/logika/HerniPlan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logika/HerniPlan.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Adventura/logika/PrikazUloz.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Adventura/logika/PrikazUloz.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/logika/Hra.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logika/Hra.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/logika/IHra.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logika/IHra.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/logika/IPrikaz.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logika/IPrikaz.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/logika/PrikazJdi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logika/PrikazJdi.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/logika/PrikazKapacita.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logika/PrikazKapacita.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/logika/PrikazKonec.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logika/PrikazKonec.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/logika/PrikazNapoveda.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logika/PrikazNapoveda.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/logika/PrikazPoloz.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logika/PrikazPoloz.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/logika/PrikazSeber.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logika/PrikazSeber.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/logika/PrikazTeleport.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logika/PrikazTeleport.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/logika/Prostor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logika/Prostor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/logika/README.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/logika/SeznamPrikazu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logika/SeznamPrikazu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/logika/Stážný.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logika/Strážný.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/logika/Vec.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logika/Vec.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/logika/ZJ.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logika/ZJ.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Start.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Start.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logika/PrikazUloz.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logika/PrikazUloz.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,6 +40,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -97,6 +56,17 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -118,7 +88,7 @@
       <workItem from="1621525624369" duration="484000" />
       <workItem from="1621526148562" duration="2007000" />
       <workItem from="1621528491064" duration="79000" />
-      <workItem from="1621528585568" duration="640000" />
+      <workItem from="1621528585568" duration="1796000" />
     </task>
     <servers />
   </component>

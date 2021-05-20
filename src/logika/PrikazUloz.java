@@ -21,12 +21,6 @@ private HerniPlan herniPlan;
     public String provedPrikaz(String... parametry) {
         try(ObjectOutputStream objectOutputStream = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream("file.ser")))){
 
-/*
-            ArrayList<String> arrayList = new ArrayList<>();
-            arrayList.add("hi");
-            arrayList.add("precious");
-*/
-
             objectOutputStream.writeObject(hra);
 
             return Barvy.ANSI_BLUE + "Hra uložena\n" + Barvy.ANSI_RESET + herniPlan.getAktualniProstor().dlouhyPopis()  ;
