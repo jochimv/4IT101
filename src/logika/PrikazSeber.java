@@ -1,9 +1,10 @@
 package logika;
 
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class PrikazSeber implements IPrikaz {
+public class PrikazSeber implements IPrikaz, Serializable {
     private static final String NAZEV = "seber";
     private ArrayList<Vec> veci;
     private Batoh batoh;

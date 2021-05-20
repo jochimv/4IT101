@@ -1,5 +1,7 @@
 package logika;
 
+import java.io.Serializable;
+
 /**
  * Třída PrikazJdi implementuje pro hru příkaz jdi.
  * Tato třída je součástí jednoduché textové hry.
@@ -7,7 +9,7 @@ package logika;
  * @author Jarmila Pavlickova, Luboš Pavlíček
  * @version pro školní rok 2016/2017
  */
-class PrikazJdi implements IPrikaz {
+class PrikazJdi implements IPrikaz, Serializable {
     private static final String NAZEV = "jdi";
     private HerniPlan plan;
 

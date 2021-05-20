@@ -1,6 +1,8 @@
 package logika;
 
-public class Hadanka {
+import java.io.Serializable;
+
+public class Hadanka implements Serializable {
     private String odpoved;
     private String zneni;
 

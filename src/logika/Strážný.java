@@ -1,8 +1,9 @@
 package logika;
 
+import java.io.Serializable;
 import java.util.*;
 
-public class Stážný {
+public class Strážný implements Serializable {
 
     private ArrayList<Prostor> prostory;
     private Random random;
@@ -10,7 +11,7 @@ public class Stážný {
     private ArrayList<Hadanka> hadanky;
     private Prostor prostorMost;
 
-    public Stážný() {
+    public Strážný() {
         random = new Random();
         prostory = HerniPlan.getProstoryHry();
         for (Prostor prostor : prostory) {

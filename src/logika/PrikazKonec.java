@@ -1,5 +1,7 @@
 package logika;
 
+import java.io.Serializable;
+
 /**
  * Třída PrikazKonec implementuje pro hru příkaz konec.
  * Tato třída je součástí jednoduché textové hry.
@@ -8,7 +10,7 @@ package logika;
  * @version pro školní rok 2016/2017
  */
 
-class PrikazKonec implements IPrikaz {
+class PrikazKonec implements IPrikaz, Serializable {
 
     private static final String NAZEV = "konec";
 

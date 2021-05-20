@@ -1,6 +1,7 @@
 package logika;
 
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
@@ -16,7 +17,7 @@ import java.util.Random;
  * @author Michael Kolling, Lubos Pavlicek, Jarmila Pavlickova
  * @version pro školní rok 2016/2017
  */
-public class HerniPlan {
+public class HerniPlan implements Serializable {
 
     private static ArrayList<Prostor> prostoryHry = new ArrayList<>();
     private Prostor aktualniProstor;

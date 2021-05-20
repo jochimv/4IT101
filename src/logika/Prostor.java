@@ -1,5 +1,6 @@
 package logika;
 
+import java.io.Serializable;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -15,7 +16,7 @@ import java.util.stream.Collectors;
  * @author Michael Kolling, Lubos Pavlicek, Jarmila Pavlickova
  * @version pro školní rok 2016/2017
  */
-public class Prostor implements Comparable<Prostor> {
+public class Prostor implements Comparable<Prostor>, Serializable {
 
     private String nazev;
     private String popis;

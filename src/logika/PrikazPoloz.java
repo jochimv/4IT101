@@ -1,8 +1,9 @@
 package logika;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class PrikazPoloz implements IPrikaz {
+public class PrikazPoloz implements IPrikaz, Serializable {
     private static final String NAZEV = "polož";
     private ArrayList<Vec> veci;
     private Batoh batoh;

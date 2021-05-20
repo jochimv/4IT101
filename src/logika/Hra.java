@@ -1,5 +1,6 @@
 package logika;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -15,12 +16,12 @@ import java.util.Random;
  * @version pro školní rok 2016/2017
  */
 
-public class Hra implements IHra {
+public class Hra implements IHra, Serializable {
     private SeznamPrikazu platnePrikazy;    // obsahuje seznam přípustných příkazů
     private HerniPlan herniPlan;
     private Batoh batoh;
     private boolean konecHry = false;
-    private Stážný strazny;
+    private Strážný strazny;
     private boolean vlkPorazeny = false;
 
     /**
@@ -35,10 +36,12 @@ public class Hra implements IHra {
         platnePrikazy.vlozPrikaz(new PrikazJdi(herniPlan));
         platnePrikazy.vlozPrikaz(new PrikazKonec(this));
 
+        platnePrikazy.vlozPrikaz(new PrikazUloz(this, herniPlan));
+
         platnePrikazy.vlozPrikaz(new PrikazSeber(herniPlan, batoh));
         platnePrikazy.vlozPrikaz(new PrikazPoloz(herniPlan, batoh));
         platnePrikazy.vlozPrikaz(new PrikazKapacita(batoh, herniPlan));
-        strazny = new Stážný();
+        strazny = new Strážný();
     }
 
     /**

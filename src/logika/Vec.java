@@ -1,6 +1,8 @@
 package logika;
 
-public class Vec {
+import java.io.Serializable;
+
+public class Vec implements Serializable {
     private String nazev;
     private boolean prenositelna;
 

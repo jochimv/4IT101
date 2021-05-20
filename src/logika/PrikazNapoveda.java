@@ -1,5 +1,7 @@
 package logika;
 
+import java.io.Serializable;
+
 /**
  * Třída PrikazNapoveda implementuje pro hru příkaz napoveda.
  * Tato třída je součástí jednoduché textové hry.
@@ -7,7 +9,7 @@ package logika;
  * @author Jarmila Pavlickova, Luboš Pavlíček
  * @version pro školní rok 2016/2017
  */
-class PrikazNapoveda implements IPrikaz {
+class PrikazNapoveda implements IPrikaz, Serializable {
 
     private static final String NAZEV = "pomoc";
     private SeznamPrikazu platnePrikazy;

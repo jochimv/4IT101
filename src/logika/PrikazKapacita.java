@@ -1,7 +1,9 @@
 package logika;
 
 
-public class PrikazKapacita implements IPrikaz {
+import java.io.Serializable;
+
+public class PrikazKapacita implements IPrikaz, Serializable {
     private static final String NAZEV = "kapacita";
     private Batoh batoh;
     private HerniPlan herniPlan;

@@ -1,5 +1,6 @@
 package logika;
 
+import java.io.Serializable;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -15,7 +16,7 @@ import java.util.TreeMap;
  *@author     Michael Kolling, Lubos Pavlicek, Jarmila Pavlickova
  *@version    pro školní rok 2016/2017
  */
-class SeznamPrikazu {
+class SeznamPrikazu implements Serializable {
     // mapa pro uložení přípustných příkazů
     private  Map<String,IPrikaz> mapaSPrikazy;
     

@@ -1,9 +1,10 @@
 package logika;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Batoh {
+public class Batoh implements Serializable {
     private static final Batoh batoh = new Batoh();
     public static final int KAPACITA = 4;
     private int aktualniPocetVeci = 0;

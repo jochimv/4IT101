@@ -1,8 +1,9 @@
 package logika;
 
+import java.io.Serializable;
 import java.util.Random;
 
-public class PrikazTeleport implements IPrikaz {
+public class PrikazTeleport implements IPrikaz, Serializable {
 private static final String NAZEV = "teleport";
 private HerniPlan herniPlan;
 private Random random;
