@@ -54,7 +54,7 @@ public class HerniPlan implements Serializable {
         Prostor vlk = new Prostor("vlk", "Hladový vlk bránící v přístupu k babiččinému domečku", new ArrayList<>(Arrays.asList(new Vec("vlčí trus", false))), batoh);
 
         Prostor chaloupka = new Prostor("chaloupka", "chaloupka, ve které bydlí babička Karkulky", new ArrayList<Vec>(Arrays.asList(new Vec("", false))), batoh);
-        Prostor vesnice = new Prostor("vesnice", "Vesnice plná obyvatel. Jsou zde obchody, kde by se dalo koupit spoustu užitečných věcí na cestu", new ArrayList<>(Arrays.asList(new Vec(ZJ.MEC, true))), batoh);
+        Prostor vesnice = new Prostor("vesnice", "Vesnice plná obyvatel. Jsou zde obchody, kde by se dalo koupit spoustu užitečných věcí na cestu", new ArrayList<>(Arrays.asList(new Vec("meč", true))), batoh);
         Prostor pole = new Prostor("pole", "Zlatavé pole plné pšenice. Na okraji se nachází pár stavenišť, ve kterých bydlí rolníci", new ArrayList<>(Arrays.asList(new Vec("vozík", false), new Vec("ponožky", true), new Vec("bič", true))), batoh);
         Prostor most = new Prostor("most", "Nedávno postavený most přes řeku. Donedávna přes ni ještě museli jezdit převozníci", new ArrayList<>(Arrays.asList(new Vec("vlajka království", false), new Vec("křesadlo", true))), batoh);
         Prostor les2 = new Prostor("les", "Prastarý, hustý les, plný zvířat. Téměř nedotčená příroda", new ArrayList<>(Arrays.asList(new Vec("houby", true), new Vec("šišky", true), new Vec("zajíc", false))), batoh);
@@ -73,9 +73,9 @@ public class HerniPlan implements Serializable {
         Random random = new Random();
         int randomLocZlato = random.nextInt(prostoryHry.size());
         int randomLocPrsten = random.nextInt(prostoryHry.size());
-        Vec zlato = new Vec(ZJ.ZLATO, true);
+        Vec zlato = new Vec("zlato", true);
         prostoryHry.get(randomLocZlato).vlozVec(zlato);
-        Vec prsten = new Vec(ZJ.PRSTEN, true);
+        Vec prsten = new Vec("prsten", true);
         prostoryHry.get(randomLocPrsten).vlozVec(prsten);
 
         // přiřazují se průchody mezi prostory (sousedící prostory)

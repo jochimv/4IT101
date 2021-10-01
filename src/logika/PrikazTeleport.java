@@ -15,7 +15,7 @@ public PrikazTeleport(HerniPlan herniPlan){
 
     @Override
     public String provedPrikaz(String... parametry) {
-        if (Batoh.getInstance().obsahujeVec(ZJ.PRSTEN)){
+        if (Batoh.getInstance().obsahujeVec("prsten")){
             int velikost = HerniPlan.getProstoryHry().size();
             int indexTeleportace = random.nextInt(velikost);
             Prostor prostorTeleportace = HerniPlan.getProstoryHry().get(indexTeleportace);
