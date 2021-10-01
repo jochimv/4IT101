@@ -38,7 +38,6 @@ public class Hra implements IHra, Serializable {
 
         platnePrikazy.vlozPrikaz(new PrikazSmaz(herniPlan));
         platnePrikazy.vlozPrikaz(new PrikazUloz(this, herniPlan));
-
         platnePrikazy.vlozPrikaz(new PrikazSeber(herniPlan, batoh));
         platnePrikazy.vlozPrikaz(new PrikazPoloz(herniPlan, batoh));
         platnePrikazy.vlozPrikaz(new PrikazKapacita(batoh, herniPlan));
@@ -81,44 +80,22 @@ public class Hra implements IHra, Serializable {
     public String zpracujPrikaz(String radek) {
         String[] slova = radek.split("[ \t]+");
         String slovoPrikazu = slova[0];
-        if (slovoPrikazu.equals("nápověda") || slovoPrikazu.equals("help")) {
-            slovoPrikazu = "pomoc";
-        }
-        String[] parametry = new String[slova.length - 1];
-        for (int i = 0; i < parametry.length; i++) {
-            parametry[i] = slova[i + 1];
-        }
+        slovoPrikazu = zkontrolujHelp(slovoPrikazu);
+
+        String[] slovaBezPrikazu = vratSlovaBezPrikazu(slova);
 
         Prostor aktualniProstor = herniPlan.getAktualniProstor();
-        if ((strazny.getVesniceProstor() == aktualniProstor || strazny.getProstorMost() == aktualniProstor) && slovoPrikazu.equals("jdi") && aktualniProstor.vratSousedniProstor(slova[1]) != null) {
-            strazny.tiskniNahodnouHadanku();
-        }
+        zkontrolujStrazneho(aktualniProstor, strazny, slovoPrikazu, slova);
 
         String textKVypsani;
+
         if (platnePrikazy.jePlatnyPrikaz(slovoPrikazu)) {
             IPrikaz prikaz = platnePrikazy.vratPrikaz(slovoPrikazu);
-            textKVypsani = "\n" + prikaz.provedPrikaz(parametry);
-            if (slovoPrikazu.equals("pomoc") || slovoPrikazu.equals("polož") || slovoPrikazu.equals("seber")) {
-                textKVypsani += "\n" + herniPlan.getAktualniProstor().dlouhyPopis();
-            }
-            if (herniPlan.getAktualniProstor().getNazev().equals("opuštěný dům")) {
-                textKVypsani += Barvy.ANSI_RED + "\nkarkulka se lekla a utekla" + Barvy.ANSI_RESET;
-                Random r = new Random();
-                int randomLoc = r.nextInt(4);
-                ArrayList<Prostor> sousedni = new ArrayList<>();
-                for (Prostor prostor : herniPlan.getAktualniProstor().getVychody()) {
-                    sousedni.add(prostor);
-                }
-                herniPlan.setAktualniProstor(sousedni.get(randomLoc));
-                textKVypsani += "\n\n" + Barvy.ANSI_BLUE + "Změnil jsi prostor\n" + Barvy.ANSI_RESET + herniPlan.getAktualniProstor().dlouhyPopis();
-            }
-            if (herniPlan.getAktualniProstor().getNazev().equals("vlk") && batoh.obsahujeVec("meč") && !vlkPorazeny) {
-                textKVypsani += Barvy.ANSI_BLUE + "\n\nVlk je poražen a můžeme projít\n" + Barvy.ANSI_RESET + herniPlan.getAktualniProstor().dlouhyPopis();
-                vlkPorazeny = true;
-            } else if (herniPlan.getAktualniProstor().getNazev().equals("vlk") && !batoh.obsahujeVec("meč") && !vlkPorazeny) {
-                herniPlan.setAktualniProstor(aktualniProstor);
-                textKVypsani += Barvy.ANSI_RED + "\nVlk nás zahnal zpátky\n" + Barvy.ANSI_BLUE + "\nZměnil jsi prostor\n" + Barvy.ANSI_RESET + aktualniProstor.dlouhyPopis();
-            }
+            textKVypsani = "\n" + prikaz.provedPrikaz(slovaBezPrikazu);
+            textKVypsani = pomocPolozSeber(slovoPrikazu, textKVypsani, herniPlan);
+            textKVypsani = zkontrolujOpustenyDum(herniPlan, textKVypsani);
+            textKVypsani = zkontrolujVlka(herniPlan, batoh, vlkPorazeny, textKVypsani, aktualniProstor);
+
             String zaverecnyText = overZdaJeKonec();
 
             if (zaverecnyText != null) {
@@ -129,13 +106,74 @@ public class Hra implements IHra, Serializable {
         }
         return textKVypsani;
     }
-   /*
-    private static boolean konvertujPomoc(String slovoPrikazu){
-        if(slovoPrikazu.equals("nápověda" || slovoPrikazu.equals()))
 
+    /**
+     * metoda vezme všechny slova, které jsme napsali do terminálu, a vrátí druhé slovo a další
+     */
+    private static String[] vratSlovaBezPrikazu(String[] slova){
+        String[] slovaBezPrikazu = new String[slova.length -1];
+        for (int i = 0; i < slovaBezPrikazu.length; i++){
+            slovaBezPrikazu[i] = slova[i+1];
+        }
+        return slovaBezPrikazu;
     }
 
-    */
+    /**
+     *
+     * V případě, že je slovo příkazu pomoc, polož, anebo seber, vrací se patřičný text a popis prostoru
+     *
+     */
+    private static String pomocPolozSeber(String slovoPrikazu, String textKVypsani, HerniPlan herniPlan){
+        if (slovoPrikazu.equals("pomoc") || slovoPrikazu.equals("polož") || slovoPrikazu.equals("seber")) {
+            return textKVypsani + "\n" + herniPlan.getAktualniProstor().dlouhyPopis();
+        } else {
+            return textKVypsani;
+
+        }
+    }
+
+    private static String zkontrolujVlka(HerniPlan herniPlan, Batoh batoh, boolean vlkPorazeny, String textKVypsani, Prostor aktualniProstor) {
+        if (herniPlan.getAktualniProstor().getNazev().equals("vlk") && batoh.obsahujeVec("meč") && !vlkPorazeny) {
+            vlkPorazeny = true;
+            return textKVypsani + Barvy.ANSI_BLUE + "\n\nVlk je poražen a můžeme projít\n" + Barvy.ANSI_RESET + herniPlan.getAktualniProstor().dlouhyPopis();
+        } else if (herniPlan.getAktualniProstor().getNazev().equals("vlk") && !batoh.obsahujeVec("meč") && !vlkPorazeny) {
+            herniPlan.setAktualniProstor(aktualniProstor);
+            return textKVypsani + Barvy.ANSI_RED + "\nVlk nás zahnal zpátky\n" + Barvy.ANSI_BLUE + "\nZměnil jsi prostor\n" + Barvy.ANSI_RESET + aktualniProstor.dlouhyPopis();
+        } else {
+            return textKVypsani;
+        }
+    }
+
+    private static String zkontrolujOpustenyDum(HerniPlan herniPlan, String textKVypsani) {
+        if (herniPlan.getAktualniProstor().getNazev().equals("opuštěný dům")) {
+            textKVypsani += Barvy.ANSI_RED + "\nkarkulka se lekla a utekla" + Barvy.ANSI_RESET;
+            Random r = new Random();
+            int randomLoc = r.nextInt(4);
+            ArrayList<Prostor> sousedni = new ArrayList<>();
+            for (Prostor prostor : herniPlan.getAktualniProstor().getVychody()) {
+                sousedni.add(prostor);
+            }
+            herniPlan.setAktualniProstor(sousedni.get(randomLoc));
+            return textKVypsani + "\n\n" + Barvy.ANSI_BLUE + "Změnil jsi prostor\n" + Barvy.ANSI_RESET + herniPlan.getAktualniProstor().dlouhyPopis();
+        } else {
+            return textKVypsani;
+        }
+    }
+
+    private static void zkontrolujStrazneho(Prostor aktualniProstor, Strážný strazny, String slovoPrikazu, String[] slova) {
+        if ((strazny.getVesniceProstor() == aktualniProstor || strazny.getProstorMost() == aktualniProstor) && slovoPrikazu.equals("jdi") && aktualniProstor.vratSousedniProstor(slova[1]) != null) {
+            strazny.tiskniNahodnouHadanku();
+        }
+    }
+
+    private static String zkontrolujHelp(String slovo) {
+        if (slovo.equals("nápověda") || slovo.equals("help")) {
+            return "pomoc";
+        } else {
+            return slovo;
+        }
+    }
+
 
     private String overZdaJeKonec() {
         if (herniPlan.getAktualniProstor().getNazev().equals("chaloupka")) {
