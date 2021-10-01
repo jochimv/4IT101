@@ -28,13 +28,13 @@ public class PrikazPoloz implements IPrikaz, Serializable {
                 if (vec.isPrenositelna()) {
                     batoh.odeberZBatohu(vec);
                     veci.add(vec);
-                    return Barvy.ANSI_BLUE + "Věc " + vec.getNazev() + Barvy.ANSI_BLUE + " odebrána z batohu" + Barvy.ANSI_RESET;
+                    return Barvy.ANSI_BLUE + "Věc " + vec.getNazev() + Barvy.ANSI_BLUE + " odebrána z batohu\n" + Barvy.ANSI_RESET + herniPlan.getAktualniProstor().dlouhyPopis() ;
                 } else {
-                    return Barvy.ANSI_BLUE + vec.getNazev() + " není přenostitelná" + Barvy.ANSI_RESET;
+                    return Barvy.ANSI_BLUE + vec.getNazev() + " není přenostitelná\n" + Barvy.ANSI_RESET + herniPlan.getAktualniProstor().dlouhyPopis();
                 }
             }
         }
-        return Barvy.ANSI_BLUE + parametry[0] + Barvy.ANSI_BLUE + " nenalezeno v batohu" + Barvy.ANSI_RESET;
+        return Barvy.ANSI_BLUE + parametry[0] + Barvy.ANSI_BLUE + " nenalezeno v batohu\n" + Barvy.ANSI_RESET + herniPlan.getAktualniProstor().dlouhyPopis() ;
     }
 
     @Override

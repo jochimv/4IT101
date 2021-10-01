@@ -13,6 +13,7 @@ class PrikazNapoveda implements IPrikaz, Serializable {
 
     private static final String NAZEV = "pomoc";
     private SeznamPrikazu platnePrikazy;
+    private HerniPlan herniPlan;
 
 
     /**
@@ -22,8 +23,9 @@ class PrikazNapoveda implements IPrikaz, Serializable {
      *                      které je možné ve hře použít,
      *                      aby je nápověda mohla zobrazit uživateli.
      */
-    public PrikazNapoveda(SeznamPrikazu platnePrikazy) {
+    public PrikazNapoveda(SeznamPrikazu platnePrikazy, HerniPlan herniPlan) {
         this.platnePrikazy = platnePrikazy;
+        this.herniPlan = herniPlan;
     }
 
     /**
@@ -37,7 +39,7 @@ class PrikazNapoveda implements IPrikaz, Serializable {
         return Barvy.ANSI_BLUE + "Tvým úkolem je dovést Červenou Karkulku z domečku\n"
                 + "až k babičce, která bydlí v chaloupce za lesem.\n"
                 + "Můžeš zadat tyto příkazy: "
-                + platnePrikazy.vratNazvyPrikazu() + Barvy.ANSI_RESET + "\n";
+                + platnePrikazy.vratNazvyPrikazu() + Barvy.ANSI_RESET + "\n" + herniPlan.getAktualniProstor().dlouhyPopis();
     }
 
     /**

@@ -32,29 +32,29 @@ public class PrikazSeber implements IPrikaz, Serializable {
                             batoh.pridejDoBatohu(vec); //a přidej ho do batohu
                             batoh.odeberZBatohu("zlato");     //z batohu odebereme zlato
                             veci.remove(vec); //z věcí z prostoru odeber meč
-                            return Barvy.ANSI_BLUE + "Zlato směněno za meč!" + Barvy.ANSI_RESET;
+                            return Barvy.ANSI_BLUE + "Zlato směněno za meč!\n" + Barvy.ANSI_RESET + herniPlan.getAktualniProstor().dlouhyPopis();
                         } else if (!batoh.obsahujeVec("zlato") && parametry[0].equals("meč") && herniPlan.getAktualniProstor().jeVecVProstoru("meč")) { //jestli se snažíme směnit zlato za meč, ale nemáme zlato
-                            return Barvy.ANSI_BLUE + "K získání meče potřebuješ zlato" + Barvy.ANSI_RESET;
+                            return Barvy.ANSI_BLUE + "K získání meče potřebuješ zlato\n" + Barvy.ANSI_RESET + herniPlan.getAktualniProstor().dlouhyPopis();
                         } else if (batoh.obsahujeVec("meč") && parametry[0].equals("zlato") && herniPlan.getAktualniProstor().jeVecVProstoru("zlato")) { //když se naopak snažíme změnit meč za zlato, a všechny podmínky jsou splněny
                             veci.add(batoh.vratVec("meč")); //přidej do prostoru meč
                             batoh.odeberZBatohu("meč");
                             veci.remove(vec); //odeber z prostoru zlato
                             batoh.pridejDoBatohu(vec); //přidej do batohu zlato
-                            return Barvy.ANSI_BLUE + "Meč směněn za zlato!" + Barvy.ANSI_RESET;
+                            return Barvy.ANSI_BLUE + "Meč směněn za zlato!\n" + Barvy.ANSI_RESET + herniPlan.getAktualniProstor().dlouhyPopis();
                         } else {
                             batoh.pridejDoBatohu(vec);
                             veci.remove(vec);
-                            return Barvy.ANSI_BLUE + "Věc " + vec.getNazev() + Barvy.ANSI_BLUE + " sebrána!" + Barvy.ANSI_RESET;
+                            return Barvy.ANSI_BLUE + "Věc " + vec.getNazev() + Barvy.ANSI_BLUE + " sebrána!\n" + Barvy.ANSI_RESET + herniPlan.getAktualniProstor().dlouhyPopis();
                         }
                     } else {
-                        return Barvy.ANSI_BLUE + "Batoh je plný, je třeba něco vyhodit." + Barvy.ANSI_RESET;
+                        return Barvy.ANSI_BLUE + "Batoh je plný, je třeba něco vyhodit.\n" + Barvy.ANSI_RESET + herniPlan.getAktualniProstor().dlouhyPopis();
                     }
                 } else {
-                    return Barvy.ANSI_BLUE + "Věc " + vec.getNazev() + " není přenositelná" + Barvy.ANSI_RESET;
+                    return Barvy.ANSI_BLUE + "Věc " + vec.getNazev() + " není přenositelná\n" + Barvy.ANSI_RESET + herniPlan.getAktualniProstor().dlouhyPopis();
                 }
             }
         }
-        return Barvy.ANSI_BLUE + "Chyba v zadání věci" + Barvy.ANSI_RESET;
+        return Barvy.ANSI_BLUE + "Chyba v zadání věci\n" + Barvy.ANSI_RESET + herniPlan.getAktualniProstor().dlouhyPopis();
     }
 
 

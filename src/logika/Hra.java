@@ -22,7 +22,7 @@ public class Hra implements IHra, Serializable {
     private Batoh batoh;
     private boolean konecHry = false;
     private Strážný strazny;
-    private boolean vlkPorazeny = false;
+    private static boolean vlkPorazeny = false;
 
     /**
      * Vytváří hru a inicializuje místnosti (prostřednictvím třídy HerniPlan) a seznam platných příkazů.
@@ -31,7 +31,7 @@ public class Hra implements IHra, Serializable {
         batoh = Batoh.getInstance();
         herniPlan = new HerniPlan();
         platnePrikazy = new SeznamPrikazu();
-        platnePrikazy.vlozPrikaz(new PrikazNapoveda(platnePrikazy));
+        platnePrikazy.vlozPrikaz(new PrikazNapoveda(platnePrikazy, herniPlan));
         platnePrikazy.vlozPrikaz(new PrikazTeleport(herniPlan));
         platnePrikazy.vlozPrikaz(new PrikazJdi(herniPlan));
         platnePrikazy.vlozPrikaz(new PrikazKonec(this));
@@ -92,7 +92,6 @@ public class Hra implements IHra, Serializable {
         if (platnePrikazy.jePlatnyPrikaz(slovoPrikazu)) {
             IPrikaz prikaz = platnePrikazy.vratPrikaz(slovoPrikazu);
             textKVypsani = "\n" + prikaz.provedPrikaz(slovaBezPrikazu);
-            textKVypsani = pomocPolozSeber(slovoPrikazu, textKVypsani, herniPlan);
             textKVypsani = zkontrolujOpustenyDum(herniPlan, textKVypsani);
             textKVypsani = zkontrolujVlka(herniPlan, batoh, vlkPorazeny, textKVypsani, aktualniProstor);
 
@@ -108,7 +107,7 @@ public class Hra implements IHra, Serializable {
     }
 
     /**
-     * metoda vezme všechny slova, které jsme napsali do terminálu, a vrátí druhé slovo a další
+     * metoda vezme všechny slova, které jsme napsali do terminálu, a vrátí druhé slovo a další (slova bez příkazu) k dalšímu zpracování
      */
     private static String[] vratSlovaBezPrikazu(String[] slova){
         String[] slovaBezPrikazu = new String[slova.length -1];
@@ -118,23 +117,9 @@ public class Hra implements IHra, Serializable {
         return slovaBezPrikazu;
     }
 
-    /**
-     *
-     * V případě, že je slovo příkazu pomoc, polož, anebo seber, vrací se patřičný text a popis prostoru
-     *
-     */
-    private static String pomocPolozSeber(String slovoPrikazu, String textKVypsani, HerniPlan herniPlan){
-        if (slovoPrikazu.equals("pomoc") || slovoPrikazu.equals("polož") || slovoPrikazu.equals("seber")) {
-            return textKVypsani + "\n" + herniPlan.getAktualniProstor().dlouhyPopis();
-        } else {
-            return textKVypsani;
-
-        }
-    }
-
     private static String zkontrolujVlka(HerniPlan herniPlan, Batoh batoh, boolean vlkPorazeny, String textKVypsani, Prostor aktualniProstor) {
         if (herniPlan.getAktualniProstor().getNazev().equals("vlk") && batoh.obsahujeVec("meč") && !vlkPorazeny) {
-            vlkPorazeny = true;
+            Hra.vlkPorazeny = true;
             return textKVypsani + Barvy.ANSI_BLUE + "\n\nVlk je poražen a můžeme projít\n" + Barvy.ANSI_RESET + herniPlan.getAktualniProstor().dlouhyPopis();
         } else if (herniPlan.getAktualniProstor().getNazev().equals("vlk") && !batoh.obsahujeVec("meč") && !vlkPorazeny) {
             herniPlan.setAktualniProstor(aktualniProstor);
