@@ -7,10 +7,7 @@ import logika.*;
 
 import uiText.TextoveRozhrani;
 
-import java.io.BufferedInputStream;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
+import java.io.*;
 import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -32,29 +29,52 @@ public class Start {
     public static void main(String[] args) {
         Hra hra = new Hra();
         String odpoved = "";
-        Path path = FileSystems.getDefault().getPath("file.ser");
-        if (Files.exists(path)) {
-            Scanner scanner = new Scanner(System.in);
-            while (true) {
-                System.out.println("Byla nalezena uložená hra. Chcete ji načíst? (a/n)");
-                if (scanner.hasNextLine()) {
-                    odpoved = scanner.nextLine().toLowerCase();
-                    if (odpoved.equals("a") || odpoved.equals("n")) {
-                        break;
-                    }
-                }
-            }
+        Path ulozenaHra = FileSystems.getDefault().getPath("file.ser");
+        if (zkontrolujUlozenouHru(ulozenaHra)) {
+            odpoved = naskenujOdpoved();
         }
         if (odpoved.equals("a")){
-            try(ObjectInputStream objectInputStream = new ObjectInputStream(new BufferedInputStream(new FileInputStream(path.toString())))){
-                hra = (Hra) objectInputStream.readObject();
-            } catch(IOException | ClassNotFoundException e){
-                e.printStackTrace();
-            }
+            hra = nactiUlozenouHru();
         }
 
         TextoveRozhrani textoveRozhrani = new TextoveRozhrani(hra);
         textoveRozhrani.hraj();
 
     }
+    private static boolean zkontrolujUlozenouHru(Path cestaKSouboru){
+        if (Files.exists(cestaKSouboru) && cestaKSouboru.endsWith("file.ser")){
+            return true;
+        } else{
+            return false;
+        }
+    }
+    private static String naskenujOdpoved(){
+        String odpoved;
+        Scanner scanner = new Scanner(System.in);
+        while (true) {
+            System.out.println("Byla nalezena uložená hra. Chcete ji načíst? (a/n)");
+            if (scanner.hasNextLine()) {
+                odpoved = scanner.nextLine().toLowerCase();
+                if (odpoved.equals("a") || odpoved.equals("n")) {
+                    return odpoved;
+                }
+            }
+        }
+    }
+    private static Hra nactiUlozenouHru(){
+        try(ObjectInputStream objectInputStream = new ObjectInputStream(new BufferedInputStream(new FileInputStream("file.ser")))){
+            return (Hra) objectInputStream.readObject();
+        } catch(FileNotFoundException e){
+            System.out.println(e.getMessage());
+            e.printStackTrace();
+        } catch(IOException e){
+            System.out.println(e.getMessage());
+            e.printStackTrace();
+        } catch(ClassNotFoundException e){
+            System.out.println(e.getMessage());
+            e.printStackTrace();
+        }
+        return null;
+    }
+
 }

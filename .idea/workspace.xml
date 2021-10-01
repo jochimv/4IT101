@@ -1,14 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="8ac7d18d-33c6-4669-80fa-2d00c879556f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/logika/PrikazSmaz.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/file.ser" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Adventura.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Adventura.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Adventura/logika/Barvy.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Adventura/logika/Barvy.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Adventura/logika/Batoh.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Adventura/logika/Batoh.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Adventura/logika/Hadanka.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Adventura/logika/Hadanka.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Adventura/logika/HerniPlan.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Adventura/logika/HerniPlan.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Adventura/logika/Hra.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Adventura/logika/Hra.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Adventura/logika/IHra.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Adventura/logika/IHra.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Adventura/logika/IPrikaz.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Adventura/logika/IPrikaz.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Adventura/logika/PrikazJdi.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Adventura/logika/PrikazJdi.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Adventura/logika/PrikazKapacita.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Adventura/logika/PrikazKapacita.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Adventura/logika/PrikazKonec.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Adventura/logika/PrikazKonec.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Adventura/logika/PrikazNapoveda.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Adventura/logika/PrikazNapoveda.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Adventura/logika/PrikazPoloz.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Adventura/logika/PrikazPoloz.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Adventura/logika/PrikazSeber.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Adventura/logika/PrikazSeber.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Adventura/logika/PrikazSmaz.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Adventura/logika/PrikazSmaz.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Adventura/logika/PrikazTeleport.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Adventura/logika/PrikazTeleport.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Adventura/logika/PrikazUloz.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Adventura/logika/PrikazUloz.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Adventura/logika/Prostor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Adventura/logika/Prostor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Adventura/logika/ProstorTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Adventura/logika/ProstorTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Adventura/logika/SeznamPrikazu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Adventura/logika/SeznamPrikazu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Adventura/logika/SeznamPrikazuTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Adventura/logika/SeznamPrikazuTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Adventura/logika/Strážný.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Adventura/logika/Strážný.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Adventura/logika/Vec.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Adventura/logika/Vec.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Adventura/logika/ZJ.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Adventura/logika/ZJ.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Adventura/main/Start.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Adventura/main/Start.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Adventura/uiText/TextoveRozhrani.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Adventura/uiText/TextoveRozhrani.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/logika/Hra.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logika/Hra.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/logika/PrikazUloz.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logika/PrikazUloz.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Start.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Start.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,16 +64,31 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
-    <property name="restartRequiresConfirmation" value="false" />
   </component>
   <component name="RunManager">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Start" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="main.Start" />
       <module name="Adventura" />
@@ -56,17 +98,6 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -89,6 +120,13 @@
       <workItem from="1621526148562" duration="2007000" />
       <workItem from="1621528491064" duration="79000" />
       <workItem from="1621528585568" duration="1796000" />
+      <workItem from="1632468110106" duration="1726000" />
+      <workItem from="1632469862663" duration="33000" />
+      <workItem from="1632470001532" duration="45000" />
+      <workItem from="1633072579897" duration="1195000" />
+      <workItem from="1633073841085" duration="109000" />
+      <workItem from="1633075923249" duration="338000" />
+      <workItem from="1633076315254" duration="223000" />
     </task>
     <servers />
   </component>

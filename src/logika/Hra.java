@@ -131,6 +131,13 @@ public class Hra implements IHra, Serializable {
         }
         return textKVypsani;
     }
+   /*
+    private static boolean konvertujPomoc(String slovoPrikazu){
+        if(slovoPrikazu.equals("nápověda" || slovoPrikazu.equals()))
+
+    }
+
+    */
 
     private String overZdaJeKonec() {
         if (herniPlan.getAktualniProstor().getNazev().equals("chaloupka")) {
