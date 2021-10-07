@@ -6,14 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="8ac7d18d-33c6-4669-80fa-2d00c879556f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Adventura/logika/Hra.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Adventura/logika/Hra.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Adventura/logika/PrikazNapoveda.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Adventura/logika/PrikazNapoveda.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Adventura/logika/PrikazPoloz.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Adventura/logika/PrikazPoloz.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Adventura/logika/PrikazSeber.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Adventura/logika/PrikazSeber.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/logika/Hra.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logika/Hra.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/logika/PrikazNapoveda.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logika/PrikazNapoveda.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/logika/PrikazPoloz.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logika/PrikazPoloz.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/logika/PrikazSeber.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logika/PrikazSeber.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,7 +97,8 @@
       <workItem from="1633073841085" duration="109000" />
       <workItem from="1633075923249" duration="338000" />
       <workItem from="1633076315254" duration="223000" />
-      <workItem from="1633098221238" duration="8276000" />
+      <workItem from="1633098221238" duration="8543000" />
+      <workItem from="1633632648858" duration="28000" />
     </task>
     <servers />
   </component>
